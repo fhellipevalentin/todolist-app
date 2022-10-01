@@ -9,6 +9,17 @@ import { TaskListComponent } from './components/task-list/task-list.component';
 import { TasksEditComponent } from './components/tasks-edit/tasks-edit.component';
 import { TasksCreateComponent } from './components/tasks-create/tasks-create.component';
 
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { MatButtonModule } from '@angular/material/button';
+import { MatToolbarModule } from '@angular/material/toolbar';
+import { MatInputModule } from '@angular/material/input';
+import { MatIconModule } from '@angular/material/icon';
+import { ReactiveFormsModule } from '@angular/forms';
+import { MatTabsModule } from '@angular/material/tabs';
+import { TaskService } from './services/task.service';
+import { MatTableModule } from '@angular/material/table';
+
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -20,9 +31,18 @@ import { TasksCreateComponent } from './components/tasks-create/tasks-create.com
   imports: [
     BrowserModule,
     AppRoutingModule,
-    HttpClientModule
+    HttpClientModule,
+    
+    BrowserAnimationsModule,
+    MatButtonModule,
+    MatToolbarModule,
+    MatInputModule,
+    MatIconModule,
+    ReactiveFormsModule,
+    MatTabsModule,
+    MatTableModule
   ],
-  providers: [],
+  providers: [TaskService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
