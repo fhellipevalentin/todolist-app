@@ -23,8 +23,40 @@ export class TaskService {
   }
 
   listDataTasks(): Observable<Tasks> {
-    return this.http.get<Tasks>(this.URLBase+'/tasks')
+    return this.http.get<Tasks>(`${this.URLBase}/tasks`)
     .pipe (
+      retry(1),
+      catchError(this.errorHandle.appError)
+    )
+  }
+
+  accessDataTasksById(id:any): Observable<Tasks>{
+    return this.http.get<Tasks>(`${this.URLBase}/tasks/${id}`)
+    .pipe (
+      retry(1),
+      catchError(this.errorHandle.appError)
+    )
+  }
+
+  insertTask(newData: any): Observable<Tasks> {
+    return this.http.post<Tasks>(`${this.URLBase}/tasks`, JSON.stringify(newData), this.authorizationAccess)
+    .pipe(
+      retry(1),
+      catchError(this.errorHandle.appError)
+    )
+  }
+
+  updateTask(id: any, newData: any): Observable<Tasks> {
+    return this.http.put<Tasks>(`${this.URLBase}/tasks/${id}`, JSON.stringify(newData), this.authorizationAccess)
+    .pipe (
+      retry(1),
+      catchError(this.errorHandle.appError)
+    )
+  }
+
+  deleteTaskById(id: any) {
+    return this.http.delete<Tasks>(`${this.URLBase}/tasks/${id}`, this.authorizationAccess)
+    .pipe(
       retry(1),
       catchError(this.errorHandle.appError)
     )
