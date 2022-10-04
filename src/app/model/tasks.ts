@@ -4,7 +4,7 @@ export class Tasks {
     title: string;
     created_At: string;
     expiration!: Date;
-    status!: false;
+    status: false;
     desc: string;
 
     constructor(author: string, title: string, desc: string, created_At: string, status: false) {
@@ -12,6 +12,6 @@ export class Tasks {
         this.title = title;
         this.desc = desc;
         this.created_At = created_At;
-        this.status = false;
+        this.status = status;
     }
 }
