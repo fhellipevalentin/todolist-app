@@ -7,7 +7,6 @@ import { AppRoutingModule } from './app-routing.module';
 import { HomeComponent } from './components/home/home.component';
 import { TaskListComponent } from './components/task-list/task-list.component';
 import { TasksEditComponent } from './components/tasks-edit/tasks-edit.component';
-import { TasksCreateComponent } from './components/tasks-create/tasks-create.component';
 
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MatButtonModule } from '@angular/material/button';
@@ -26,8 +25,7 @@ import { MatCardModule } from '@angular/material/card';
     AppComponent,
     HomeComponent,
     TaskListComponent,
-    TasksEditComponent,
-    TasksCreateComponent
+    TasksEditComponent
   ],
   imports: [
     BrowserModule,
