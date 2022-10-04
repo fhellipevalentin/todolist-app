@@ -18,6 +18,7 @@ import { ReactiveFormsModule } from '@angular/forms';
 import { MatTabsModule } from '@angular/material/tabs';
 import { TaskService } from './services/task.service';
 import { MatTableModule } from '@angular/material/table';
+import { MatCardModule } from '@angular/material/card';
 
 
 @NgModule({
@@ -40,7 +41,8 @@ import { MatTableModule } from '@angular/material/table';
     MatIconModule,
     ReactiveFormsModule,
     MatTabsModule,
-    MatTableModule
+    MatTableModule,
+    MatCardModule
   ],
   providers: [TaskService],
   bootstrap: [AppComponent]
