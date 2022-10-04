@@ -16,7 +16,7 @@ export class TaskListComponent implements OnInit {
   formulary!: FormGroup;
 
   tasksList: any = []
-  columns : string[] = ['author', 'title', 'created_At', 'status', 'desc']
+  columns : string[] = ['author', 'title', 'created_At', 'status', 'desc', 'options']
 
   ngOnInit(): void {
     this.showData();
@@ -46,5 +46,12 @@ export class TaskListComponent implements OnInit {
       this.formulary.reset();
       console.log(response)
     })
+  }
+  deleteData(id:any) {
+    if(confirm('Are yout sure you want to delete this task?')) {
+      this.taskService.deleteTaskById(id).subscribe(()=>{
+        this.showData()
+      })
+    }
   }
 }
