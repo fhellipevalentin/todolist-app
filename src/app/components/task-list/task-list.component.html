@@ -39,4 +39,36 @@
             </table>
         </mat-card>
     </mat-tab>
+    <mat-tab>
+        <ng-template mat-tab-label>
+            <mat-icon>create</mat-icon>
+            Create a New Task
+        </ng-template>
+        <mat-card>
+            <form [formGroup]="formulary" (ngSubmit)="submit()">
+                <mat-form-field class="full-width" appearance="fill">
+                    <mat-label>Author: </mat-label>
+                    <input formControlName="author" matInput placeholder="Author of the task" />
+                </mat-form-field>
+                <div *ngIf="formulary.get('author')?.errors">
+                    <div *ngIf="formulary.get('author')?.errors?.['required']">Field Author is Required</div>
+                </div>
+                <mat-form-field class="full-width" appearance="fill">
+                  <mat-label>Title: </mat-label>
+                  <input formControlName="title" matInput placeholder="Title of the task" />
+                </mat-form-field>
+                <div *ngIf="formulary.get('title')?.errors">
+                  <div *ngIf="formulary.get('title')?.errors?.['required']">Field Title is Required</div>
+                </div>
+                <mat-form-field class="full-width" appearance="fill">
+                  <mat-label>Description: </mat-label>
+                  <input formControlName="desc" matInput placeholder="Description" />
+                </mat-form-field>
+                <div *ngIf="formulary.get('desc')?.errors">
+                  <div *ngIf="formulary.get('desc')?.errors?.['required']">Field Description is Required</div>
+                </div>
+                  <button mat-button color="primary" >Add Task</button>
+              </form>
+        </mat-card>
+    </mat-tab>
 </mat-tab-group>
