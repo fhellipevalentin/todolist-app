@@ -1,5 +1,6 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
+import { MatSnackBar } from '@angular/material/snack-bar';
 import { Tasks } from 'src/app/model/tasks';
 import { TaskService } from 'src/app/services/task.service';
 
@@ -10,7 +11,7 @@ import { TaskService } from 'src/app/services/task.service';
 })
 export class TaskListComponent implements OnInit {
 
-  constructor( private taskService: TaskService, private formBilder: FormBuilder) { }
+  constructor( private taskService: TaskService, private formBilder: FormBuilder, private snackBar: MatSnackBar) { }
   
   formulary!: FormGroup;
 
@@ -37,7 +38,12 @@ export class TaskListComponent implements OnInit {
     const formValues = this.formulary.value
     const tasks: Tasks = new Tasks(formValues.author, formValues.title, formValues.desc, new Date().toUTCString(), false);
     this.taskService.insertTask(tasks).subscribe(response => {
-      this.tasksList.push(response)
+      let list: Tasks[] = [...this.tasksList, response]
+        this.tasksList = list
+      this.snackBar.open('The Task has been added', 'Success!', {
+        duration: 2000
+      })
+      this.formulary.reset();
       console.log(response)
     })
   }

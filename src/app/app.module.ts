@@ -18,6 +18,7 @@ import { MatTabsModule } from '@angular/material/tabs';
 import { TaskService } from './services/task.service';
 import { MatTableModule } from '@angular/material/table';
 import { MatCardModule } from '@angular/material/card';
+import { MatSnackBarModule } from '@angular/material/snack-bar'
 
 
 @NgModule({
@@ -40,7 +41,8 @@ import { MatCardModule } from '@angular/material/card';
     ReactiveFormsModule,
     MatTabsModule,
     MatTableModule,
-    MatCardModule
+    MatCardModule,
+    MatSnackBarModule
   ],
   providers: [TaskService],
   bootstrap: [AppComponent]

@@ -51,23 +51,23 @@
                     <input formControlName="author" matInput placeholder="Author of the task" />
                 </mat-form-field>
                 <div *ngIf="formulary.get('author')?.errors">
-                    <div *ngIf="formulary.get('author')?.errors?.['required']">Field Author is Required</div>
+                    <div *ngIf="formulary.get('author')?.errors?.['required'] && !formulary.get('author')?.pristine">Field Author is Required</div>
                 </div>
                 <mat-form-field class="full-width" appearance="fill">
                   <mat-label>Title: </mat-label>
                   <input formControlName="title" matInput placeholder="Title of the task" />
                 </mat-form-field>
                 <div *ngIf="formulary.get('title')?.errors">
-                  <div *ngIf="formulary.get('title')?.errors?.['required']">Field Title is Required</div>
+                  <div *ngIf="formulary.get('title')?.errors?.['required'] && !formulary.get('title')?.pristine">Field Title is Required</div>
                 </div>
                 <mat-form-field class="full-width" appearance="fill">
                   <mat-label>Description: </mat-label>
                   <input formControlName="desc" matInput placeholder="Description" />
                 </mat-form-field>
                 <div *ngIf="formulary.get('desc')?.errors">
-                  <div *ngIf="formulary.get('desc')?.errors?.['required']">Field Description is Required</div>
+                  <div *ngIf="formulary.get('desc')?.errors?.['required'] && !formulary.get('desc')?.pristine">Field Description is Required</div>
                 </div>
-                  <button mat-button color="primary" >Add Task</button>
+                  <button mat-raised-button color="primary">Add Task</button>
               </form>
         </mat-card>
     </mat-tab>
