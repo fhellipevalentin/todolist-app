@@ -11,7 +11,7 @@ import { TaskService } from 'src/app/services/task.service';
 })
 export class TaskListComponent implements OnInit {
 
-  constructor( private taskService: TaskService, private formBilder: FormBuilder, private snackBar: MatSnackBar) { }
+  constructor( private taskService: TaskService, private formBuilder: FormBuilder, private snackBar: MatSnackBar) { }
   
   formulary!: FormGroup;
 
@@ -20,7 +20,7 @@ export class TaskListComponent implements OnInit {
 
   ngOnInit(): void {
     this.showData();
-    this.formulary = this.formBilder.group( {
+    this.formulary = this.formBuilder.group( {
       author: new FormControl('', Validators.required),
       title: new FormControl('', Validators.required),
       desc: new FormControl('', Validators.required)
@@ -36,7 +36,8 @@ export class TaskListComponent implements OnInit {
 
   submit() {
     const formValues = this.formulary.value
-    const tasks: Tasks = new Tasks(formValues.author, formValues.title, formValues.desc, new Date().toUTCString(), false);
+    const tasks: Tasks = new Tasks(formValues.author, formValues.title, 
+      formValues.desc, new Date().toLocaleTimeString() + ' ' + new Date().toLocaleDateString, false);
     this.taskService.insertTask(tasks).subscribe(response => {
       let list: Tasks[] = [...this.tasksList, response]
         this.tasksList = list

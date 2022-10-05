@@ -18,7 +18,7 @@ import { MatTabsModule } from '@angular/material/tabs';
 import { TaskService } from './services/task.service';
 import { MatTableModule } from '@angular/material/table';
 import { MatCardModule } from '@angular/material/card';
-import { MatSnackBarModule } from '@angular/material/snack-bar'
+import { MatSnackBarModule } from '@angular/material/snack-bar';
 
 
 @NgModule({
