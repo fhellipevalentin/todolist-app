@@ -1,27 +1,35 @@
-# TodolistApp
+# Todolist App
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 14.2.4.
+Este projeto é uma aplicação simples de criação, seleção, atualização e deleção de tarefas simples do dia-a-dia. Criado em Angular Material, em essência, full stack e possui uma base de dados que pode ser manipulados através do "json-server"
+
+![image](https://user-images.githubusercontent.com/65087845/195132550-bbacc2c8-ebd4-4f14-912b-06a5d4cab4dd.png)
+
+![image](https://user-images.githubusercontent.com/65087845/195132393-e05dfc96-9104-4b27-a0af-be2a12b4a246.png)
+
+![image](https://user-images.githubusercontent.com/65087845/195132699-f6dbdcdf-d5e4-4a6f-9830-a3654d88d431.png)
+
+## Requerimentos:
+
+### Cli/Angular: 
+
+Para instalar o Angular, siga os passos no site oficial: https://angular.io/guide/setup-local.
+
+## Baixar a aplicação 
+
+Assim que estiver baixado, coloque na sua pasta de preferência
+
+## Baixar as dependências
+
+Execute `npm install` dentro do diretório específico raiz da aplicação Angular para baixar as dependências.
+
+### Json-Server
+
+Para conseguir manipular a base de dados é necessário esse utilitário para ao menos simular uma API. Para isso, execute `npm install json-server`.
+
+## Funcionamento Json-Server
+ 
+Para conferir seu funcionamento, navegue até a pasta /server/ da aplicação baixada do github e execute `json-server db.json`. Assim que executar o arquivo em JSON, use o navegador de sua preferência e digite `http://localhost:3000/tasks` para conferir os dados que estão registrados até o momento.
 
 ## Development server
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The application will automatically reload if you change any of the source files.
-
-## Code scaffolding
-
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
-
-## Build
-
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory.
-
-## Running unit tests
-
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
-
-## Running end-to-end tests
-
-Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To use this command, you need to first add a package that implements end-to-end testing capabilities.
-
-## Further help
-
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
+Execute `ng serve` para executar a aplicação através do Angular. Navegue para `http://localhost:4200/tasks-list` para ver a aplicação rodando. A rota padrão por enquanto é para o componente Home, que está em desenvolvimento. Ao menos, as funcionalidades de uma aplicação To-do estão ok.
